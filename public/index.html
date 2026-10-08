@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MindSpark — learning that listens first</title>
+<meta name="description" content="An AI mentor that understands how you learn, teaches the way you think, checks in when you drift, and quizzes you adaptively.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+  <section class="hero container">
+    <div>
+      <h1>Learning that listens <span class="soft">before it teaches.</span></h1>
+      <p class="lead">Meet Nova, a mentor that talks with you first — your mood, how you learn, how much time and internet you have — then builds a lesson only you would get, checks in when you drift, and ends with a quiz that adapts to you.</p>
+      <form class="ask" id="askForm" autocomplete="off">
+        <label for="heroTopic" class="sr-only" style="position:absolute;left:-9999px">What do you want to learn?</label>
+        <input id="heroTopic" placeholder="What do you want to learn today?">
+        <button class="btn btn-p" type="submit">Talk to Nova</button>
+      </form>
+      <div class="chips" id="heroChips" aria-label="Popular topics"></div>
+    </div>
+    <div class="hero-stage" aria-hidden="true">
+      <div class="big-orb"></div>
+      <div class="bubble-float nova bf1"><b>Nova</b>Honest question — how are you feeling about studying right now?</div>
+      <div class="bubble-float bf2"><b>Aarav</b>Bored. And my net is slow.</div>
+      <div class="bubble-float nova bf3"><b>Nova</b>Then short, surprising, and Lite mode on. Deal?</div>
+    </div>
+  </section>
+
+  <section class="block container" id="story">
+    <div class="block-head">
+      <h2>Aarav's Tuesday</h2>
+      <p>Disengagement isn't laziness. It's a lesson that never asked who it was talking to.</p>
+    </div>
+    <div class="story">
+      <article class="scene">
+        <div class="when">7:40 pm, before</div>
+        <p>Aarav, 15, shares one phone with his sister. The video lesson buffers, the chapter feels endless, and nobody notices he stopped reading on page two. He scrolls reels instead.</p>
+      </article>
+      <article class="scene">
+        <div class="when">7:42 pm, with Nova</div>
+        <p>Nova asks how he feels ("bored"), how he learns ("tell me a story"), and what his setup is ("slow internet"). It switches to Lite mode and rebuilds photosynthesis as a story about a kitchen inside a leaf.</p>
+      </article>
+      <article class="scene after">
+        <div class="when">7:55 pm, after</div>
+        <p>When he went idle, Nova popped in: "Something not going through?" He tapped "the Calvin cycle", got a simpler version, then scored 4/5 on a quiz that got harder each time he was right.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="block container" id="how">
+    <div class="block-head">
+      <h2>Four steps, one conversation</h2>
+      <p>Each step feeds the next, so the quiz knows what confused you in the lesson.</p>
+    </div>
+    <div class="path">
+      <div><div class="n">1</div><h3>Say what you're curious about</h3><p>Type any topic or pick one. No sign-up.</p></div>
+      <div><div class="n">2</div><h3>Talk with Nova</h3><p>Tap answers, type, or speak. Nova learns your mood, style, level, goal, time and setup.</p></div>
+      <div><div class="n">3</div><h3>Learn your way</h3><p>A lesson built for your profile, with Nova popping in to ask what's working and what isn't.</p></div>
+      <div><div class="n">4</div><h3>Prove it</h3><p>Five questions that get harder when you're right and gentler when you're not.</p></div>
+    </div>
+  </section>
+
+  <section class="block container" id="features">
+    <div class="block-head">
+      <h2>Built for every learner, not the average one</h2>
+    </div>
+    <div class="features">
+      <div class="feature"><h3>💜 Reads the room</h3><p>Bored, tired, stressed or curious — the lesson's length, tone and order change with how you feel.</p></div>
+      <div class="feature"><h3>🧭 One-to-one check-ins</h3><p>Nova notices when you go idle, skim, or switch tabs, and asks what's not clicking instead of pushing on.</p></div>
+      <div class="feature"><h3>🔄 Teaches it another way</h3><p>Stuck? Switch to a story, a diagram, steps, or a hands-on activity in one tap.</p></div>
+      <div class="feature"><h3>🔊 Voice, only if you want it</h3><p>Nova can speak and listen. One button turns it on or off, anytime.</p></div>
+      <div class="feature"><h3>📶 Works on slow internet</h3><p>Built-in topics run fully offline. Lite mode keeps it smooth on old or shared phones.</p></div>
+      <div class="feature"><h3>🎯 Quiz that adapts</h3><p>Difficulty moves with you, hints are there when needed, and results show what Nova noticed.</p></div>
+    </div>
+  </section>
+
+  <section class="block container">
+    <div class="cta-band">
+      <h2>Ready when you are.</h2>
+      <p>It takes about a minute for Nova to get to know you.</p>
+      <a href="talk.html" class="btn btn-p" id="ctaStart">Start talking</a>
+    </div>
+  </section>
+</main>
+<footer>MindSpark · A hackathon prototype for the Personalized Engagement &amp; Learning Innovation Challenge</footer>
+
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/knowledge.js"></script>
+<script>
+  renderNav(0);
+  const chips = $('#heroChips');
+  KB.forEach(k => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.textContent = `${k.emoji} ${k.title}`;
+    b.onclick = () => { Store.set('preTopic', k.title); location.href = 'talk.html'; };
+    chips.appendChild(b);
+  });
+  $('#askForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('#heroTopic').value.trim();
+    if (v) Store.set('preTopic', v); else Store.del('preTopic');
+    location.href = 'talk.html';
+  });
+  $('#ctaStart').addEventListener('click', () => Store.del('preTopic'));
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talk with Nova — MindSpark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="talk-wrap">
+  <aside class="profile-card" aria-label="What Nova has learned about you">
+    <h3>What Nova knows about you</h3>
+    <p class="muted" style="font-size:.88rem" id="pfNote">Fills in as you talk.</p>
+    <div class="meter"><i id="pfMeter"></i></div>
+    <div class="muted" style="font-size:.8rem" id="pfPct">0% understood</div>
+    <div id="pfRows" style="margin-top:10px"></div>
+    <button class="btn btn-g" id="restartBtn" style="width:100%;margin-top:18px">Start over</button>
+  </aside>
+
+  <section class="chat-panel" aria-label="Conversation with Nova">
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <div class="opts" id="opts"></div>
+    <form class="input-row" id="inputRow" autocomplete="off">
+      <button type="button" class="mic" id="micBtn" title="Speak your answer" aria-label="Speak your answer">🎙</button>
+      <input id="msgInput" placeholder="Type, tap an option, or use the mic…" aria-label="Your answer">
+      <button type="submit" class="send" aria-label="Send">➤</button>
+    </form>
+  </section>
+</div>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/knowledge.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/talk.js"></script>
+</body>
+</html>

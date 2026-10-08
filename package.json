@@ -1,0 +1,12 @@
+{
+  "name": "mindspark",
+  "version": "2.0.0",
+  "description": "Personalised learning with independent AI agents that share one smart memory",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

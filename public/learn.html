@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your lesson — MindSpark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="learn-wrap">
+  <main id="lesson">
+    <div class="loader" id="loader">
+      <div class="big-orb" aria-hidden="true"></div>
+      <h2>Nova is building your lesson…</h2>
+      <p class="muted" id="loaderMsg">Shaping it around how you learn.</p>
+    </div>
+  </main>
+
+  <aside class="side" id="side" hidden>
+    <div class="panel">
+      <h3>How you're doing</h3>
+      <div class="state"><span class="muted">Sections done</span><b id="stDone">0</b></div>
+      <div class="state"><span class="muted">Nova check-ins</span><b id="stCheck">0</b></div>
+      <div class="state"><span class="muted">Right now</span><b id="stMood">Settling in</b></div>
+      <div class="meter"><i id="engMeter" style="width:50%"></i></div>
+      <div class="muted" style="font-size:.8rem">Engagement <span id="engPct">50%</span></div>
+    </div>
+    <div class="panel">
+      <h3>Mentor conversation</h3>
+      <div class="log" id="log"><p class="log-empty">Everything Nova asks you, and what you answer, shows up here.</p></div>
+    </div>
+    <div class="panel">
+      <h3>Demo: trigger a check-in</h3>
+      <p class="muted" style="font-size:.84rem;margin-bottom:10px">Nova does these on her own. Use these to show them live.</p>
+      <div class="demo-row">
+        <button class="mini" data-demo="idle">Gone idle</button>
+        <button class="mini" data-demo="away">Switched tabs</button>
+        <button class="mini" data-demo="skim">Skimming</button>
+        <button class="mini" data-demo="timer">Regular check-in</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<button class="orb" id="orb" aria-label="Talk to Nova" hidden><span class="tip">Talk to Nova</span></button>
+<div class="dim" id="dim"></div>
+<div class="mentor-pop" id="pop" role="dialog" aria-modal="false" aria-labelledby="popTitle">
+  <div class="mp-head">
+    <div class="av" aria-hidden="true"></div>
+    <div class="who"><b id="popTitle">Nova</b><small id="popTrig">Your mentor</small></div>
+    <button class="mp-close" id="popClose" aria-label="Close and keep learning">✕</button>
+  </div>
+  <div class="mp-body" id="popBody" aria-live="polite"></div>
+  <div class="mp-opts" id="popOpts"></div>
+  <form class="mp-input" id="popForm" autocomplete="off">
+    <button type="button" class="mic" id="popMic" aria-label="Speak to Nova">🎙</button>
+    <input id="popInput" placeholder="Tell Nova anything…" aria-label="Message Nova">
+    <button type="submit" class="send" aria-label="Send">➤</button>
+  </form>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/knowledge.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/learn.js"></script>
+</body>
+</html>
